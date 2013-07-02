@@ -1,10 +1,10 @@
-package br.com.uoldiveo.painel.administracao.professional.services;
+package br.com.uoldiveo.painel.administracao.professionalservices;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import br.com.uoldiveo.painel.administracao.professional.services.ProfessionalServicesNovoOrcamentoPage;
+import br.com.uoldiveo.painel.administracao.professionalservices.ProfessionalServicesNovoOrcamentoPage;
 
 public class ProfessionalServicesOrcamentosSolicitadosPage {
 
