@@ -15,7 +15,7 @@ public class ProfessionalServicesNovoOrcamentoPage {
 
 	}
 
-	public void solicita(String produtoservico, String descricao) {
+	public ProfessionalServicesOrcamentosSolicitadosPage solicita(String produtoservico, String descricao) {
 
 		Select cbProdutoServico = new Select(driver.findElement(By
 				.id("idClassificationCall")));
@@ -25,6 +25,8 @@ public class ProfessionalServicesNovoOrcamentoPage {
 
 		txtDescricao.sendKeys(descricao);
 		txtDescricao.submit();
+		
+		return new ProfessionalServicesOrcamentosSolicitadosPage(driver);
 
 	}
 

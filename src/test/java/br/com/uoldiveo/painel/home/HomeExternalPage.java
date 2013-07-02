@@ -4,6 +4,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import br.com.uoldiveo.painel.administracao.professionalservices.ProfessionalServicesNovoOrcamentoPage;
+import br.com.uoldiveo.painel.administracao.professionalservices.ProfessionalServicesOrcamentosSolicitadosPage;
+
 public class HomeExternalPage {
 
 	private WebDriver driver;
@@ -16,16 +19,22 @@ public class HomeExternalPage {
 		driver.get("https://painel.uoldiveo.com.br");
 	}
 
-	public void OrcamentosSolicitados() {
+	public ProfessionalServicesOrcamentosSolicitadosPage OrcamentosSolicitados() {
 		WebElement clickOrcamentosSolicitados = driver.findElement(By
 				.linkText("Orçamentos solicitados"));
+		
 		clickOrcamentosSolicitados.click();
+		
+		return new ProfessionalServicesOrcamentosSolicitadosPage(driver);
 	}
 
-	public void NovoOrcamento() {
+	public ProfessionalServicesNovoOrcamentoPage NovoOrcamento() {
 		WebElement clickNovoOrcamento = driver.findElement(By
 				.linkText("Novo orçamento"));
+		
 		clickNovoOrcamento.click();
+		
+		return new ProfessionalServicesNovoOrcamentoPage(driver);
 	}
 
 }

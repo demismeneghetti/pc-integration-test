@@ -62,7 +62,7 @@ public class HomeLoginSystemTest {
 	
 		login.esqueciMinhaSenha();
 		
-		solicitaNovaSenha.solicitaNovaSenha("pedepano@azul", "teste-painel@bol.com.br");
+		solicitaNovaSenha.solicitaNovaSenha("bobesponja@azul", "teste-painel@bol.com.br");
 		
 		assertTrue(solicitaNovaSenhaMensagem.validaMensagemDeSucesso("Sua senha foi enviada para teste-painel@bol.com.br"));
 	
