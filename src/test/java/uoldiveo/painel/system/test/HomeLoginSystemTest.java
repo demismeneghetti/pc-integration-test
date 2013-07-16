@@ -1,4 +1,4 @@
-package uoldiveo.painel.testes;
+package uoldiveo.painel.system.test;
 
 import static org.junit.Assert.assertTrue;
 
@@ -8,9 +8,9 @@ import org.junit.Test;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import uoldiveo.painel.home.Home;
-import uoldiveo.painel.home.login.LoginExternal;
-import uoldiveo.painel.home.login.LoginSolicitaNovaSenha;
-import uoldiveo.painel.home.login.SolicitaNovaSenhaMensagens;
+import uoldiveo.painel.login.LoginExternal;
+import uoldiveo.painel.login.LoginSolicitaNovaSenha;
+import uoldiveo.painel.login.SolicitaNovaSenhaMensagens;
 
 
 public class HomeLoginSystemTest {

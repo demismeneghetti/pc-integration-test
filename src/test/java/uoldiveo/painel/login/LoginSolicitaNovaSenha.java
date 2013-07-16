@@ -1,4 +1,4 @@
-package uoldiveo.painel.home.login;
+package uoldiveo.painel.login;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

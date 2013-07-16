@@ -1,4 +1,4 @@
-package uoldiveo.painel.administracao.professionalservices;
+package uoldiveo.painel.administracao.comercial.professionalservices;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

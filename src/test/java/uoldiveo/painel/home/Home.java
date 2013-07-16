@@ -4,8 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import uoldiveo.painel.administracao.professionalservices.ProfessionalServicesNovoOrcamento;
-import uoldiveo.painel.administracao.professionalservices.ProfessionalServicesOrcamentosSolicitados;
+import uoldiveo.painel.administracao.comercial.professionalservices.ProfessionalServicesNovoOrcamento;
+import uoldiveo.painel.administracao.comercial.professionalservices.ProfessionalServicesOrcamentosSolicitados;
 
 
 public class Home {

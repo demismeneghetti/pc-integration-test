@@ -1,17 +1,17 @@
-package uoldiveo.painel.administracao.professionalservices;
+package uoldiveo.painel.administracao.comercial.oportunidadesdenegocio;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import uoldiveo.painel.administracao.professionalservices.ProfessionalServicesNovoOrcamento;
+import uoldiveo.painel.administracao.comercial.professionalservices.ProfessionalServicesNovoOrcamento;
 
 
-public class ProfessionalServicesOrcamentosSolicitados {
+public class OportunidadesDeNegocios {
 
 	private WebDriver driver;
 
-	public ProfessionalServicesOrcamentosSolicitados(WebDriver driver) {
+	public OportunidadesDeNegocios(WebDriver driver) {
 		this.driver = driver;
 	}
 

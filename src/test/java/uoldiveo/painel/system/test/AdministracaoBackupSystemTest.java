@@ -1,4 +1,4 @@
-package uoldiveo.painel.testes;
+package uoldiveo.painel.system.test;
 
 public class AdministracaoBackupSystemTest {
 

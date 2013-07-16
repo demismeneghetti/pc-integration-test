@@ -1,4 +1,4 @@
-package uoldiveo.painel.testes;
+package uoldiveo.painel.system.test;
 
 import static org.junit.Assert.assertTrue;
 
@@ -7,13 +7,13 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import uoldiveo.painel.administracao.professionalservices.ProfessionalServicesNovoOrcamento;
-import uoldiveo.painel.administracao.professionalservices.ProfessionalServicesOrcamentosSolicitados;
+import uoldiveo.painel.administracao.comercial.professionalservices.ProfessionalServicesNovoOrcamento;
+import uoldiveo.painel.administracao.comercial.professionalservices.ProfessionalServicesOrcamentosSolicitados;
 import uoldiveo.painel.home.Home;
-import uoldiveo.painel.home.login.LoginExternal;
+import uoldiveo.painel.login.LoginExternal;
 
 
-public class AdministracaoProfessionalServiceSystemTest {
+public class AdministracaoComercialProfessionalServiceSystemTest {
 
 	private FirefoxDriver driver;
 	private Home home;
