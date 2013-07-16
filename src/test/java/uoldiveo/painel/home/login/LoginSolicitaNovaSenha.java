@@ -1,22 +1,21 @@
-package br.com.uoldiveo.painel.home.login;
+package uoldiveo.painel.home.login;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import br.com.uoldiveo.painel.testes.SolicitaNovaSenhaMensagensPage;
 
-public class LoginExternalSolicitaNovaSenhaPage {
+public class LoginSolicitaNovaSenha {
 
 	private WebDriver driver;
 
-	public LoginExternalSolicitaNovaSenhaPage(WebDriver driver) {
+	public LoginSolicitaNovaSenha(WebDriver driver) {
 
 		this.driver = driver;
 
 	}
 
-	public SolicitaNovaSenhaMensagensPage solicitaNovaSenha(String usuario, String email) {
+	public SolicitaNovaSenhaMensagens solicitaNovaSenha(String usuario, String email) {
 
 		WebElement txtUsuario = driver.findElement(By.id("username"));
 		WebElement txtEmail = driver.findElement(By.id("email"));
@@ -26,7 +25,7 @@ public class LoginExternalSolicitaNovaSenhaPage {
 
 		txtEmail.submit();
 		
-		return new SolicitaNovaSenhaMensagensPage(driver);
+		return new SolicitaNovaSenhaMensagens(driver);
 
 	}
 

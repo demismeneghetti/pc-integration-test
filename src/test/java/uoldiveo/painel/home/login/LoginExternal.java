@@ -1,14 +1,14 @@
-package br.com.uoldiveo.painel.home.login;
+package uoldiveo.painel.home.login;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class LoginExternalPage {
+public class LoginExternal {
 
 	private WebDriver driver;
 
-	public LoginExternalPage(WebDriver driver) {
+	public LoginExternal(WebDriver driver) {
 
 		this.driver = driver;
 

@@ -1,12 +1,12 @@
-package br.com.uoldiveo.painel.testes;
+package uoldiveo.painel.home.login;
 
 import org.openqa.selenium.WebDriver;
 
-public class SolicitaNovaSenhaMensagensPage {
+public class SolicitaNovaSenhaMensagens {
 
 	private WebDriver driver;
 
-	public SolicitaNovaSenhaMensagensPage(WebDriver driver) {
+	public SolicitaNovaSenhaMensagens(WebDriver driver) {
 
 		this.driver = driver;
 

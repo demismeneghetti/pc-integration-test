@@ -1,4 +1,4 @@
-package br.com.uoldiveo.painel.testes;
+package uoldiveo.painel.testes;
 
 import static org.junit.Assert.assertTrue;
 
@@ -7,26 +7,28 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import br.com.uoldiveo.painel.home.HomeExternalPage;
-import br.com.uoldiveo.painel.home.login.LoginExternalPage;
-import br.com.uoldiveo.painel.home.login.LoginExternalSolicitaNovaSenhaPage;
+import uoldiveo.painel.home.Home;
+import uoldiveo.painel.home.login.LoginExternal;
+import uoldiveo.painel.home.login.LoginSolicitaNovaSenha;
+import uoldiveo.painel.home.login.SolicitaNovaSenhaMensagens;
+
 
 public class HomeLoginSystemTest {
 
 	private FirefoxDriver driver;
-	private LoginExternalPage login;
-	private HomeExternalPage home;
-	private LoginExternalSolicitaNovaSenhaPage solicitaNovaSenha;
-	private SolicitaNovaSenhaMensagensPage solicitaNovaSenhaMensagem;
+	private LoginExternal login;
+	private Home home;
+	private LoginSolicitaNovaSenha solicitaNovaSenha;
+	private SolicitaNovaSenhaMensagens solicitaNovaSenhaMensagem;
 	
 	@Before
 	public void inicializa() {
 		
 		driver = new FirefoxDriver();
-		home = new HomeExternalPage(driver);
-		login = new LoginExternalPage(driver);
-		solicitaNovaSenha = new LoginExternalSolicitaNovaSenhaPage(driver);
-		solicitaNovaSenhaMensagem = new SolicitaNovaSenhaMensagensPage(driver);
+		home = new Home(driver);
+		login = new LoginExternal(driver);
+		solicitaNovaSenha = new LoginSolicitaNovaSenha(driver);
+		solicitaNovaSenhaMensagem = new SolicitaNovaSenhaMensagens(driver);
 		
 		home.acessa();
 	

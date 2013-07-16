@@ -1,26 +1,27 @@
-package br.com.uoldiveo.painel.administracao.professionalservices;
+package uoldiveo.painel.administracao.professionalservices;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import br.com.uoldiveo.painel.administracao.professionalservices.ProfessionalServicesNovoOrcamentoPage;
+import uoldiveo.painel.administracao.professionalservices.ProfessionalServicesNovoOrcamento;
 
-public class ProfessionalServicesOrcamentosSolicitadosPage {
+
+public class ProfessionalServicesOrcamentosSolicitados {
 
 	private WebDriver driver;
 
-	public ProfessionalServicesOrcamentosSolicitadosPage(WebDriver driver) {
+	public ProfessionalServicesOrcamentosSolicitados(WebDriver driver) {
 		this.driver = driver;
 	}
 
-	public ProfessionalServicesNovoOrcamentoPage novoOrcamento() {
+	public ProfessionalServicesNovoOrcamento novoOrcamento() {
 
 		WebElement btNovoOrcamento = driver.findElement(By
 				.linkText("Novo orçamento"));
 		btNovoOrcamento.click();
 
-		return new ProfessionalServicesNovoOrcamentoPage(driver);
+		return new ProfessionalServicesNovoOrcamento(driver);
 
 	}
 
@@ -37,9 +38,11 @@ public class ProfessionalServicesOrcamentosSolicitadosPage {
 
 	}
 
-	public boolean validaNovoOrcamentoMensagemDeSucesso(String mensagemSucesso) {
+	public boolean validaMensagem(String mensagem) {
 
-		return driver.getPageSource().contains(mensagemSucesso);
+		return driver.getPageSource().contains(mensagem);
 
 	}
+	
+	
 }

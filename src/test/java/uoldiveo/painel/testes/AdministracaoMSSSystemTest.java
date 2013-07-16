@@ -1,4 +1,4 @@
-package br.com.uoldiveo.painel.testes;
+package uoldiveo.painel.testes;
 
 public class AdministracaoMSSSystemTest {
 
