@@ -30,7 +30,7 @@ public class AdministracaoProfessionalServiceSystemTest {
 		psosp = new ProfessionalServicesOrcamentosSolicitadosPage(driver);
 
 		home.acessa();
-		login.loga("pedepano@azul", "seja100%");
+		login.loga("bobesponja@azul", "seja100%");
 
 	}
 
@@ -40,7 +40,7 @@ public class AdministracaoProfessionalServiceSystemTest {
 		home.OrcamentosSolicitados();
 
 		assertTrue(psosp.validaProfessionalServicesOrcamentosSolicitadosPage(
-				"Orçamentos solicitados", "Novo orçamento", "Protudo/Serviço:",
+				"Orçamentos solicitados", "Novo orçamento", "Produto/Serviço:",
 				"Data da solicitação:", "Status:", "Ver detalhes"));
 
 	}
@@ -48,7 +48,9 @@ public class AdministracaoProfessionalServiceSystemTest {
 	@Test
 	public void solicitaNovoOrcamento() {
 
-		home.NovoOrcamento();
+		home.OrcamentosSolicitados();
+		
+		psosp.novoOrcamento();
 
 		psno.solicita("Manutenção de Usuários", "Descrição: Teste Automatizado");
 
@@ -57,9 +59,9 @@ public class AdministracaoProfessionalServiceSystemTest {
 
 	}
 
-//	@After
-//	public void encerra() {
-//		driver.close();
-//	}
+	@After
+	public void encerra() {
+		driver.close();
+	}
 
 }
