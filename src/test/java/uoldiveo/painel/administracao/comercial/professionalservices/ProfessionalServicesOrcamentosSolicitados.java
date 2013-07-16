@@ -25,7 +25,7 @@ public class ProfessionalServicesOrcamentosSolicitados {
 
 	}
 
-	public boolean validaProfessionalServicesOrcamentosSolicitadosPage (String title,
+	public boolean validaProfessionalServicesOrcamentosSolicitados (String title,
 			String botao, String detalhePS, String detalheData,
 			String detalheStatus, String detalheLink) {
 

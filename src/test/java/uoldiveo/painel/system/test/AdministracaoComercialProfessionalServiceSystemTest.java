@@ -18,8 +18,8 @@ public class AdministracaoComercialProfessionalServiceSystemTest {
 	private FirefoxDriver driver;
 	private Home home;
 	private LoginExternal login;
-	private ProfessionalServicesNovoOrcamento psnop;
-	private ProfessionalServicesOrcamentosSolicitados psosp;
+	private ProfessionalServicesNovoOrcamento psno;
+	private ProfessionalServicesOrcamentosSolicitados psos;
 
 	@Before
 	public void inicializa() {
@@ -27,8 +27,8 @@ public class AdministracaoComercialProfessionalServiceSystemTest {
 		driver = new FirefoxDriver();
 		home = new Home(driver);
 		login = new LoginExternal(driver);
-		psnop = new ProfessionalServicesNovoOrcamento(driver);
-		psosp = new ProfessionalServicesOrcamentosSolicitados(driver);
+		psno = new ProfessionalServicesNovoOrcamento(driver);
+		psos = new ProfessionalServicesOrcamentosSolicitados(driver);
 
 		home.acessa();
 		login.loga("bobesponja@azul", "seja100%");
@@ -40,7 +40,7 @@ public class AdministracaoComercialProfessionalServiceSystemTest {
 
 		home.OrcamentosSolicitados();
 
-		assertTrue(psosp.validaProfessionalServicesOrcamentosSolicitadosPage(
+		assertTrue(psos.validaProfessionalServicesOrcamentosSolicitados(
 				"Orçamentos solicitados", "Novo orçamento", "Produto/Serviço:",
 				"Data da solicitação:", "Status:", "Ver detalhes"));
 
@@ -51,12 +51,11 @@ public class AdministracaoComercialProfessionalServiceSystemTest {
 
 		home.OrcamentosSolicitados();
 		
-		psosp.novoOrcamento();
+		psos.novoOrcamento();
 
-		psnop.cancelar();
+		psno.cancelar();
 
-		assertTrue(psosp
-				.validaMensagem("Orçamentos solicitados"));
+		assertTrue(psos.validaMensagem("Orçamentos solicitados"));
 
 	}
 	
@@ -65,11 +64,11 @@ public class AdministracaoComercialProfessionalServiceSystemTest {
 
 		home.OrcamentosSolicitados();
 		
-		psosp.novoOrcamento();
+		psos.novoOrcamento();
 
-		psnop.enviarEmBranco();
+		psno.enviarEmBranco();
 
-		assertTrue(psosp
+		assertTrue(psos
 				.validaMensagem("Solicitar novo orçamento"));
 
 	}
@@ -79,11 +78,11 @@ public class AdministracaoComercialProfessionalServiceSystemTest {
 
 		home.OrcamentosSolicitados();
 		
-		psosp.novoOrcamento();
+		psos.novoOrcamento();
 
-		psnop.solicita("Manutenção de Usuários", "");
+		psno.solicita("Manutenção de Usuários", "");
 
-		assertTrue(psosp
+		assertTrue(psos
 				.validaMensagem("A solicitação de orçamento foi enviada com sucesso."));
 
 	}
@@ -93,11 +92,11 @@ public class AdministracaoComercialProfessionalServiceSystemTest {
 
 		home.OrcamentosSolicitados();
 		
-		psosp.novoOrcamento();
+		psos.novoOrcamento();
 
-		psnop.solicita("Execução de Migração para Nova Versão", "Descrição: Teste Automatizado Tipo 2");
+		psno.solicita("Execução de Migração para Nova Versão", "Descrição: Teste Automatizado Tipo 2");
 
-		assertTrue(psosp
+		assertTrue(psos
 				.validaMensagem("A solicitação de orçamento foi enviada com sucesso."));
 
 	}
@@ -107,11 +106,11 @@ public class AdministracaoComercialProfessionalServiceSystemTest {
 
 		home.OrcamentosSolicitados();
 		
-		psosp.novoOrcamento();
+		psos.novoOrcamento();
 
-		psnop.solicita("Instalação e Configuração - Máquina Virtual", "Descrição: Teste Automatizado Tipo 3");
+		psno.solicita("Instalação e Configuração - Máquina Virtual", "Descrição: Teste Automatizado Tipo 3");
 
-		assertTrue(psosp
+		assertTrue(psos
 				.validaMensagem("A solicitação de orçamento foi enviada com sucesso."));
 
 	}
