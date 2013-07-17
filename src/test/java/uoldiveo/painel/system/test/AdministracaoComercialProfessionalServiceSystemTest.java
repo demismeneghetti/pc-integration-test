@@ -8,116 +8,109 @@ import org.junit.Test;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import uoldiveo.painel.administracao.comercial.professionalservices.ProfessionalServicesNovoOrcamento;
-import uoldiveo.painel.administracao.comercial.professionalservices.ProfessionalServicesOrcamentosSolicitados;
+import uoldiveo.painel.administracao.comercial.professionalservices.ProfessionalServices;
 import uoldiveo.painel.home.Home;
 import uoldiveo.painel.login.LoginExternal;
 
-
 public class AdministracaoComercialProfessionalServiceSystemTest {
 
-	private FirefoxDriver driver;
-	private Home home;
-	private LoginExternal login;
-	private ProfessionalServicesNovoOrcamento psno;
-	private ProfessionalServicesOrcamentosSolicitados psos;
+    private FirefoxDriver driver;
+    private Home home;
+    private LoginExternal login;
+    private ProfessionalServicesNovoOrcamento psno;
+    private ProfessionalServices psos;
 
-	@Before
-	public void inicializa() {
+    @Before
+    public void inicializa() {
 
-		driver = new FirefoxDriver();
-		home = new Home(driver);
-		login = new LoginExternal(driver);
-		psno = new ProfessionalServicesNovoOrcamento(driver);
-		psos = new ProfessionalServicesOrcamentosSolicitados(driver);
+	driver = new FirefoxDriver();
+	home = new Home(driver);
+	login = new LoginExternal(driver);
+	psno = new ProfessionalServicesNovoOrcamento(driver);
+	psos = new ProfessionalServices(driver);
 
-		home.acessa();
-		login.loga("bobesponja@azul", "seja100%");
+	home.acessa();
+	login.loga("bobesponja@azul", "seja100%");
 
-	}
+    }
 
-	@Test
-	public void listaOrcamentosSolicitados() {
+    @Test
+    public void listaOrcamentosSolicitados() {
 
-		home.OrcamentosSolicitados();
+	home.ProfessionalServices();
 
-		assertTrue(psos.validaProfessionalServicesOrcamentosSolicitados(
-				"Orçamentos solicitados", "Novo orçamento", "Produto/Serviço:",
-				"Data da solicitação:", "Status:", "Ver detalhes"));
+	assertTrue(psos.validaProfessionalServicesOrcamentosSolicitados("Professional services", "Novo orçamento", "Produto/Serviço:",
+		"Data da solicitação:", "Status:", "Ver detalhes"));
 
-	}
+    }
 
-	@Test
-	public void cancelaSolicitacaoNovoOrcamento() {
+    @Test
+    public void cancelaSolicitacaoNovoOrcamento() {
 
-		home.OrcamentosSolicitados();
-		
-		psos.novoOrcamento();
+	home.ProfessionalServices();
 
-		psno.cancelar();
+	psos.novoOrcamento();
 
-		assertTrue(psos.validaMensagem("Orçamentos solicitados"));
+	psno.cancelar();
 
-	}
-	
-	@Test
-	public void enviaEmBrancoSolicitacaoNovoOrcamento() {
+	assertTrue(psos.validaMensagem("Professional services"));
 
-		home.OrcamentosSolicitados();
-		
-		psos.novoOrcamento();
+    }
 
-		psno.enviarEmBranco();
+    @Test
+    public void enviaEmBrancoSolicitacaoNovoOrcamento() {
 
-		assertTrue(psos
-				.validaMensagem("Solicitar novo orçamento"));
+	home.ProfessionalServices();
 
-	}
+	psos.novoOrcamento();
 
-	@Test
-	public void solicitaNovoOrcamentoTipo1() {
+	psno.solicita("Selecione um Produto/Serviço", "");
 
-		home.OrcamentosSolicitados();
-		
-		psos.novoOrcamento();
+	assertTrue(psos.validaMensagem("Solicitar novo orçamento"));
 
-		psno.solicita("Manutenção de Usuários", "");
+    }
 
-		assertTrue(psos
-				.validaMensagem("A solicitação de orçamento foi enviada com sucesso."));
+    @Test
+    public void solicitaNovoOrcamentoTipo1() {
 
-	}
+	home.ProfessionalServices();
 
-	@Test
-	public void solicitaNovoOrcamentoTipo2() {
+	psos.novoOrcamento();
 
-		home.OrcamentosSolicitados();
-		
-		psos.novoOrcamento();
+	psno.solicita("Manutenção de Usuários", "");
 
-		psno.solicita("Execução de Migração para Nova Versão", "Descrição: Teste Automatizado Tipo 2");
+	assertTrue(psos.validaMensagem("A solicitação de orçamento foi enviada com sucesso."));
 
-		assertTrue(psos
-				.validaMensagem("A solicitação de orçamento foi enviada com sucesso."));
+    }
 
-	}
+    @Test
+    public void solicitaNovoOrcamentoTipo2() {
 
-	@Test
-	public void solicitaNovoOrcamentoTipo3() {
+	home.ProfessionalServices();
 
-		home.OrcamentosSolicitados();
-		
-		psos.novoOrcamento();
+	psos.novoOrcamento();
 
-		psno.solicita("Instalação e Configuração - Máquina Virtual", "Descrição: Teste Automatizado Tipo 3");
+	psno.solicita("Execução de Migração para Nova Versão", "Descrição: Teste Automatizado Tipo 2");
 
-		assertTrue(psos
-				.validaMensagem("A solicitação de orçamento foi enviada com sucesso."));
+	assertTrue(psos.validaMensagem("A solicitação de orçamento foi enviada com sucesso."));
 
-	}
+    }
 
-	
-	@After
-	public void encerra() {
-		driver.close();
-	}
+    @Test
+    public void solicitaNovoOrcamentoTipo3() {
+
+	home.ProfessionalServices();
+
+	psos.novoOrcamento();
+
+	psno.solicita("Instalação e Configuração - Máquina Virtual", "Descrição: Teste Automatizado Tipo 3");
+
+	assertTrue(psos.validaMensagem("A solicitação de orçamento foi enviada com sucesso."));
+
+    }
+
+    @After
+    public void encerra() {
+	driver.close();
+    }
 }

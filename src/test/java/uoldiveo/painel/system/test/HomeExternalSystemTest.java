@@ -1,5 +1,5 @@
 package uoldiveo.painel.system.test;
 
-public class HomeSystemTest {
+public class HomeExternalSystemTest {
 
 }

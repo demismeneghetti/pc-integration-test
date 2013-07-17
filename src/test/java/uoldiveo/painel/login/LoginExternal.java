@@ -6,45 +6,44 @@ import org.openqa.selenium.WebElement;
 
 public class LoginExternal {
 
-	private WebDriver driver;
+    private WebDriver driver;
 
-	public LoginExternal(WebDriver driver) {
+    public LoginExternal(WebDriver driver) {
 
-		this.driver = driver;
+	this.driver = driver;
 
-	}
+    }
 
-	public void loga(String usuario, String senha) {
+    public void loga(String usuario, String senha) {
 
-		WebElement txtUsuario = driver.findElement(By.id("username"));
-		WebElement txtSenha = driver.findElement(By.id("password"));
+	WebElement txtUsuario = driver.findElement(By.id("username"));
+	WebElement txtSenha = driver.findElement(By.id("password"));
 
-		txtUsuario.sendKeys(usuario);
-		txtSenha.sendKeys(senha);
+	txtUsuario.sendKeys(usuario);
+	txtSenha.sendKeys(senha);
 
-		txtSenha.submit();
+	txtSenha.submit();
 
-	}
+    }
 
-	public boolean validaObrigatoriedadeLogin(String mensagemErrologin) {
+    public boolean validaObrigatoriedadeLogin(String mensagemErrologin) {
 
-		return driver.getPageSource().contains(mensagemErrologin);
+	return driver.getPageSource().contains(mensagemErrologin);
 
-	}
+    }
 
-	public boolean validaObrigatoriedadeSenha(String mensagemErroSenha) {
+    public boolean validaObrigatoriedadeSenha(String mensagemErroSenha) {
 
-		return driver.getPageSource().contains(mensagemErroSenha);
+	return driver.getPageSource().contains(mensagemErroSenha);
 
-	}
+    }
 
-	public void esqueciMinhaSenha() {
+    public void esqueciMinhaSenha() {
 
-		WebElement txtEsqueciMinhaSenha = driver.findElement(By
-				.linkText("Esqueci minha senha"));
-		
-		txtEsqueciMinhaSenha.click();
-		
-	}
-	
+	WebElement txtEsqueciMinhaSenha = driver.findElement(By.linkText("Esqueci minha senha"));
+
+	txtEsqueciMinhaSenha.click();
+
+    }
+
 }

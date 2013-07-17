@@ -3,46 +3,65 @@ package uoldiveo.painel.administracao.comercial.oportunidadesdenegocio;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
-import uoldiveo.painel.administracao.comercial.professionalservices.ProfessionalServicesNovoOrcamento;
-
+import org.openqa.selenium.support.ui.Select;
 
 public class OportunidadesDeNegocios {
 
-	private WebDriver driver;
+    private WebDriver driver;
 
-	public OportunidadesDeNegocios(WebDriver driver) {
-		this.driver = driver;
-	}
+    public OportunidadesDeNegocios(WebDriver driver) {
+	this.driver = driver;
+    }
 
-	public ProfessionalServicesNovoOrcamento novoOrcamento() {
+    public OportunidadesDeNegocios lista(String oportunidade, String LinhaDeNegocio) {
 
-		WebElement btNovoOrcamento = driver.findElement(By
-				.linkText("Novo orçamento"));
-		btNovoOrcamento.click();
+	// Combo-box Oportunidades
+	Select cbOportunidade = new Select(driver.findElement(By.id("opportunityStatus")));
+	cbOportunidade.selectByVisibleText(oportunidade);
 
-		return new ProfessionalServicesNovoOrcamento(driver);
+	// Combo-box Linha de Negócio
+	Select cbLinhaDeNegocio = new Select(driver.findElement(By.id("lineOfBusiness")));
+	cbLinhaDeNegocio.selectByVisibleText(LinhaDeNegocio);
 
-	}
+	// Componente Contador
+	// WebElement contadorDeOportunidades =
+	// driver.findElement(By.className("sub-title fr"));
+	// System.out.println(contadorDeOportunidades.getText());
 
-	public boolean validaProfessionalServicesOrcamentosSolicitadosPage (String title,
-			String botao, String detalhePS, String detalheData,
-			String detalheStatus, String detalheLink) {
+	return new OportunidadesDeNegocios(driver);
 
-		return driver.getPageSource().contains(title)
-				&& driver.getPageSource().contains(botao)
-				&& driver.getPageSource().contains(detalhePS)
-				&& driver.getPageSource().contains(detalheData)
-				&& driver.getPageSource().contains(detalheStatus)
-				&& driver.getPageSource().contains(detalheLink);
+    }
 
-	}
+    // public OportunidadesDeNegocios listaTodas() {
+    //
+    // new lista(driver);
+    //
+    // cbOpo
+    //
+    // return new OportunidadesDeNegocios(driver);
+    //
+    // }
 
-	public boolean validaMensagem(String mensagem) {
+    // Select cbProdutoServico = new
+    // Select(driver.findElement(By.id("idClassificationCall")));
+    // WebElement txtDescricao = driver.findElement(By.id("call-infotext"));
+    //
+    // cbProdutoServico.selectByVisibleText(produtoservico);
+    //
+    // txtDescricao.sendKeys(descricao);
+    // txtDescricao.submit();
 
-		return driver.getPageSource().contains(mensagem);
+    // public boolean validaProfessionalServicesOrcamentosSolicitados(String
+    // title, String botao, String detalhePS, String detalheData,
+    // String detalheStatus, String detalheLink) {
+    //
+    // return driver.getPageSource().contains(title) &&
+    // driver.getPageSource().contains(botao)
+    // && driver.getPageSource().contains(detalhePS) &&
+    // driver.getPageSource().contains(detalheData)
+    // && driver.getPageSource().contains(detalheStatus) &&
+    // driver.getPageSource().contains(detalheLink);
+    //
+    // }
 
-	}
-	
-	
 }
