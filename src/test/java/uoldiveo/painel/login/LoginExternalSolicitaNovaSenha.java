@@ -18,11 +18,12 @@ public class LoginExternalSolicitaNovaSenha {
 
 	WebElement txtUsuario = driver.findElement(By.id("username"));
 	WebElement txtEmail = driver.findElement(By.id("email"));
+	WebElement btEnviar = driver.findElement(By.className("button-text"));
 
 	txtUsuario.sendKeys(usuario);
 	txtEmail.sendKeys(email);
 
-	txtEmail.submit();
+	btEnviar.click();
 
 	return new SolicitaNovaSenhaMensagens(driver);
 

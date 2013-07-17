@@ -1,4 +1,4 @@
-package uoldiveo.painel.system.test;
+package uoldiveo.painel.test.administracao;
 
 import static org.junit.Assert.assertTrue;
 
@@ -12,7 +12,7 @@ import uoldiveo.painel.administracao.comercial.professionalservices.Professional
 import uoldiveo.painel.home.Home;
 import uoldiveo.painel.login.LoginExternal;
 
-public class AdministracaoComercialProfessionalServiceSystemTest {
+public class AdministracaoComercialProfessionalServiceTest {
 
     private FirefoxDriver driver;
     private Home home;
