@@ -41,8 +41,9 @@ public class LoginExternalTest {
 
 	login.loga("pedepano@azul", "seja100%");
 
-	assertTrue(login.validaObrigatoriedadeSenha("Digite sua senha."));
+	assertTrue(login.validaObrigatoriedadeSenha("Seja bem-vindo ao Painel do Cliente"));
 
+	logger.error(getClass());
     }
 
     @Test

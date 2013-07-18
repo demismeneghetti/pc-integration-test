@@ -1,5 +1,8 @@
 package uoldiveo.painel.system.test;
 
+import static org.junit.Assert.assertTrue;
+
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -10,7 +13,7 @@ import uoldiveo.painel.home.Home;
 import uoldiveo.painel.login.LoginExternal;
 
 public class AdministracaoMonitoramentoNotificacoesTest {
-  
+
     private FirefoxDriver driver;
     private Home home;
     private LoginExternal login;
@@ -25,19 +28,19 @@ public class AdministracaoMonitoramentoNotificacoesTest {
 	login = new LoginExternal(driver);
 	nn = new Notificacoes(driver);
 	nnn = new NotificacoesNovaNotificacao(driver);
-	
+
 	home.acessaExternal();
 	login.loga("bobesponja@azul", "seja100%");
 
     }
-    
+
     @Test
-    public void criaNotificacao(){
-	
+    public void criaNotificacao() {
+
 	home.Notificacoes();
-	
+
 	nn.novaRegra();
-	
+
 	nnn.insereTituloDaNotificacao("Automação de Teste - Cria Notificação");
 	nnn.insereDetalhesDaNotificacao("Teste Automatizado");
 	nnn.selecionaItensMonitorados(0);
@@ -46,6 +49,17 @@ public class AdministracaoMonitoramentoNotificacoesTest {
 
 	nnn.selecionaContatos(0);
 	nnn.selecionaTipoNotificacaoEmail(0);
-	
+	// nnn.selecionaTipoNotificacaoSMS(0);
+
+	nnn.criarNotificacao();
+
+	assertTrue(nnn.validaMensagem("A notificação [Automação de Teste - Cria Notificação] foi criada com sucesso."));
+
     }
+
+    @After
+    public void encerra() {
+	driver.close();
+    }
+    
 }
