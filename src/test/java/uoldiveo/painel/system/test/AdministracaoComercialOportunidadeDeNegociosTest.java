@@ -1,4 +1,4 @@
-package uoldiveo.painel.test.administracao;
+package uoldiveo.painel.system.test;
 
 import org.junit.After;
 import org.junit.Before;
@@ -7,7 +7,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.apache.log4j.Logger;
 
 
-import uoldiveo.painel.administracao.comercial.oportunidadesdenegocio.OportunidadesDeNegocios;
+import uoldiveo.painel.administracao.comercial.oportunidadesdenegocio.NegociacoesComerciais;
 import uoldiveo.painel.home.Home;
 import uoldiveo.painel.login.LoginExternal;
 
@@ -16,7 +16,7 @@ public class AdministracaoComercialOportunidadeDeNegociosTest {
     private FirefoxDriver driver;
     private Home home;
     private LoginExternal login;
-    private OportunidadesDeNegocios odn;
+    private NegociacoesComerciais odn;
     private static final Logger logger = Logger.getLogger(AdministracaoComercialOportunidadeDeNegociosTest.class.getName());
 
     @Before
@@ -25,13 +25,16 @@ public class AdministracaoComercialOportunidadeDeNegociosTest {
 	driver = new FirefoxDriver();
 
 	home = new Home(driver);
-	home.acessa();
+	home.acessaExternal();
+	
+	logger.info("Efetuando login na aplicação...");
 	
 	login = new LoginExternal(driver);
 	login.loga("bobesponja@azul", "seja100%");
 
 	logger.info("Carregando página [Oportunidade de negócios]...");
-	odn = new OportunidadesDeNegocios(driver);
+	
+	odn = new NegociacoesComerciais(driver);
 
     }
 
@@ -39,7 +42,9 @@ public class AdministracaoComercialOportunidadeDeNegociosTest {
     public void listaTodasTodas() {
 
 	logger.info("Selecionando [Status: 'Todas'] e [Linha de negócio: 'Todas']");
-	home.OportunidadesDeNegocios();
+	
+	home.NegociacoesComerciais();
+	
 	odn.lista("Todas", "Todas");
 
     }
@@ -48,7 +53,7 @@ public class AdministracaoComercialOportunidadeDeNegociosTest {
     public void listaTodasDataCenter() {
 
 	logger.info("Selecionando [Status: 'Todas'] e [Linha de negócio: 'Data Center']");
-	home.OportunidadesDeNegocios();
+	home.NegociacoesComerciais();
 	odn.lista("Todas", "Todas");
 
     }
@@ -57,7 +62,7 @@ public class AdministracaoComercialOportunidadeDeNegociosTest {
     public void listaTodasTelecom() {
 
 	logger.info("Selecionando [Status: 'Todas'] e [Linha de negócio: 'Telecom']");
-	home.OportunidadesDeNegocios();
+	home.NegociacoesComerciais();
 	odn.lista("Todas", "Todas");
 
     }
@@ -66,7 +71,7 @@ public class AdministracaoComercialOportunidadeDeNegociosTest {
     public void listaEmAndamento() {
 
 	logger.info("Selecionando [Status: 'Em Andamento'] e [Linha de negócio: 'Todas']");
-	home.OportunidadesDeNegocios();
+	home.NegociacoesComerciais();
 	odn.lista("Em Andamento", "Todas");
 
     }
@@ -75,7 +80,7 @@ public class AdministracaoComercialOportunidadeDeNegociosTest {
     public void listaEmAndamentoDataCenter() {
 
 	logger.info("Selecionando [Status: 'Em Andamento'] e [Linha de negócio: 'Data Center']");
-	home.OportunidadesDeNegocios();
+	home.NegociacoesComerciais();
 	odn.lista("Em Andamento", "Data Center");
 
     }
@@ -84,7 +89,7 @@ public class AdministracaoComercialOportunidadeDeNegociosTest {
     public void listaEmAndamentoTelecom() {
 
 	logger.info("Selecionando [Status: 'Em Andamento'] e [Linha de negócio: 'Telecon']");
-	home.OportunidadesDeNegocios();
+	home.NegociacoesComerciais();
 	odn.lista("Em Andamento", "Telecom");
 
     }
@@ -93,7 +98,7 @@ public class AdministracaoComercialOportunidadeDeNegociosTest {
     public void listaFechadas() {
 	
 	logger.info("Selecionando [Status: 'Fechada'] e [Linha de negócio: 'Todas']");
-	home.OportunidadesDeNegocios();
+	home.NegociacoesComerciais();
 	odn.lista("Fechada", "Todas");
 
     }
@@ -102,7 +107,7 @@ public class AdministracaoComercialOportunidadeDeNegociosTest {
     public void listaFechadasDataCenter() {
 
 	logger.info("Selecionando [Status: 'Fechada'] e [Linha de negócio: 'Data Center']");
-	home.OportunidadesDeNegocios();
+	home.NegociacoesComerciais();
 	odn.lista("Fechada", "Data Center");
 
     }
@@ -111,7 +116,7 @@ public class AdministracaoComercialOportunidadeDeNegociosTest {
     public void listaFechadasTelecom() {
 
 	logger.info("Selecionando [Status: 'Fechada'] e [Linha de negócio: 'Telecom']");
-	home.OportunidadesDeNegocios();
+	home.NegociacoesComerciais();
 	odn.lista("Fechada", "Telecom");
 
     }
@@ -119,6 +124,8 @@ public class AdministracaoComercialOportunidadeDeNegociosTest {
     @After
     public void close() {
 
+	logger.info("Efetuando logoff da aplicação...");
+	
 	driver.close();
 
     }

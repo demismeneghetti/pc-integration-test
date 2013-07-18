@@ -4,8 +4,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import uoldiveo.painel.administracao.comercial.oportunidadesdenegocio.OportunidadesDeNegocios;
+import uoldiveo.painel.administracao.comercial.oportunidadesdenegocio.NegociacoesComerciais;
 import uoldiveo.painel.administracao.comercial.professionalservices.ProfessionalServices;
+import uoldiveo.painel.administracao.monitoramento.notificacoes.Notificacoes;
 
 public class Home {
 
@@ -15,28 +16,42 @@ public class Home {
 	this.driver = driver;
     }
 
-    public void acessa() {
+    public void acessaExternal() {
 	driver.get("https://painel.uoldiveo.com.br");
+    }
+
+    public void acessaInternal() {
+	driver.get("https://painel.uoldiveo.intranet");
     }
 
     // ADMINISTRACAO
     // // COMERCIAL
-    // //// PROFESSIONAL SERVICES
+    // // // PROFESSIONAL SERVICES // INTERNAL // EXTERNAL
     public ProfessionalServices ProfessionalServices() {
-	WebElement clickOrcamentosSolicitados = driver.findElement(By.linkText("Professional services"));
+	WebElement clickProfessionalServices = driver.findElement(By.linkText("Professional services"));
 
-	clickOrcamentosSolicitados.click();
-
+	clickProfessionalServices.click();
 	return new ProfessionalServices(driver);
     }
 
-    // //// OPORTUNIDADES DE NEGOCIOS
-    public OportunidadesDeNegocios OportunidadesDeNegocios() {
-	WebElement clickOportunidadesDeNegocios = driver.findElement(By.linkText("Oportunidades de negócios"));
+    // // // OPORTUNIDADES DE NEGOCIOS // INTERNAL // EXTERNAL
+    public NegociacoesComerciais NegociacoesComerciais() {
+	WebElement clickNegociacoesComerciais = driver.findElement(By.linkText("Negociações comerciais"));
 
-	clickOportunidadesDeNegocios.click();
+	clickNegociacoesComerciais.click();
 
-	return new OportunidadesDeNegocios(driver);
+	return new NegociacoesComerciais(driver);
+    }
+
+    // // MONITORAMENTO
+    // // // Notificações // INTERNAL // EXTERNAL
+    public Notificacoes Notificacoes() {
+	WebElement clickNotificacoes = driver.findElement(By.linkText("Notificações"));
+
+	clickNotificacoes.click();
+
+	return new Notificacoes(driver);
+
     }
 
 }

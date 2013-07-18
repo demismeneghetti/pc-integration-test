@@ -1,4 +1,4 @@
-package uoldiveo.painel.test.administracao;
+package uoldiveo.painel.system.test;
 
 import static org.junit.Assert.assertTrue;
 
@@ -29,7 +29,7 @@ public class AdministracaoComercialProfessionalServiceTest {
 	psno = new ProfessionalServicesNovoOrcamento(driver);
 	psos = new ProfessionalServices(driver);
 
-	home.acessa();
+	home.acessaExternal();
 	login.loga("bobesponja@azul", "seja100%");
 
     }

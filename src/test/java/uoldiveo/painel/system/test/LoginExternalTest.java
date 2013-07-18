@@ -1,4 +1,4 @@
-package uoldiveo.painel.test.login;
+package uoldiveo.painel.system.test;
 
 import static org.junit.Assert.assertTrue;
 
@@ -10,7 +10,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import uoldiveo.painel.home.Home;
 import uoldiveo.painel.login.LoginExternal;
-import uoldiveo.painel.login.LoginExternalSolicitaNovaSenha;
 import uoldiveo.painel.login.SolicitaNovaSenhaMensagens;
 
 public class LoginExternalTest {
@@ -18,7 +17,6 @@ public class LoginExternalTest {
     private FirefoxDriver driver;
     private LoginExternal login;
     private Home home;
-    private LoginExternalSolicitaNovaSenha solicitaNovaSenha;
     private SolicitaNovaSenhaMensagens solicitaNovaSenhaMensagem;
     private static final Logger logger = Logger.getLogger(LoginExternalTest.class.getName());
 
@@ -30,10 +28,9 @@ public class LoginExternalTest {
 	driver = new FirefoxDriver();
 	home = new Home(driver);
 	login = new LoginExternal(driver);
-	solicitaNovaSenha = new LoginExternalSolicitaNovaSenha(driver);
 	solicitaNovaSenhaMensagem = new SolicitaNovaSenhaMensagens(driver);
 
-	home.acessa();
+	home.acessaExternal();
 
     }
 

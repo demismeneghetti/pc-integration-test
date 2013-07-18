@@ -1,4 +1,4 @@
-package uoldiveo.painel.test.login;
+package uoldiveo.painel.system.test;
 
 import static org.junit.Assert.assertTrue;
 
@@ -33,7 +33,7 @@ public class LoginExternalSolicitaNovaSenhaTest {
 	solicitaNovaSenha = new LoginExternalSolicitaNovaSenha(driver);
 	solicitaNovaSenhaMensagem = new SolicitaNovaSenhaMensagens(driver);
 
-	home.acessa();
+	home.acessaExternal();
 
     }
 

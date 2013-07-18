@@ -1,5 +1,5 @@
 package uoldiveo.painel.administracao.monitoramento;
 
-public class MonitoramentoAlarmes {
+public class GraficosDeBandaIP {
 
 }
