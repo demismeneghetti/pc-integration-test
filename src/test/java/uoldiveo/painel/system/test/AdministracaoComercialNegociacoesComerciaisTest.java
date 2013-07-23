@@ -11,13 +11,13 @@ import uoldiveo.painel.administracao.comercial.oportunidadesdenegocio.Negociacoe
 import uoldiveo.painel.home.Home;
 import uoldiveo.painel.login.LoginExternal;
 
-public class AdministracaoComercialOportunidadeDeNegociosTest {
+public class AdministracaoComercialNegociacoesComerciaisTest {
 
     private FirefoxDriver driver;
     private Home home;
     private LoginExternal login;
     private NegociacoesComerciais odn;
-    private static final Logger logger = Logger.getLogger(AdministracaoComercialOportunidadeDeNegociosTest.class.getName());
+    private static final Logger logger = Logger.getLogger(AdministracaoComercialNegociacoesComerciaisTest.class.getName());
 
     @Before
     public void inicializa() {

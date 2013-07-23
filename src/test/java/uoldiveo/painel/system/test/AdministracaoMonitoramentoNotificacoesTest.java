@@ -57,9 +57,54 @@ public class AdministracaoMonitoramentoNotificacoesTest {
 
     }
 
+    @Test
+    public void removeNotificacaoFechaModal() {
+
+	home.Notificacoes();
+
+	nn.removerRegra();
+	
+	nn.removerRegraModalFechar();
+
+    }
+    
+    @Test
+    public void removeNotificacaoCancelaRemocao() {
+
+	home.Notificacoes();
+
+	nn.novaRegra();
+
+	nnn.insereTituloDaNotificacao("Automação de Teste - Cria Notificação");
+	nnn.insereDetalhesDaNotificacao("Teste Automatizado");
+	nnn.selecionaItensMonitorados(0);
+	nnn.selecionaContatos(0);
+	nnn.selecionaTipoNotificacaoEmail(0);
+	nnn.criarNotificacao();
+	
+	nn.removerRegra();
+	
+	nn.removerRegraModalCancelar();
+
+    }
+
+    @Test
+    public void removeNotificacaoConfirmaRemocao() {
+
+	home.Notificacoes();
+
+	nn.removerRegra();
+
+	assertTrue(nn.removerRegraModalValidaTexto("Exclusão de notificação", "Confirma a exclusão da notificação",
+		"Automação de Teste - Cria Notificação"));
+
+	nn.removerRegraModalConfirmar();
+
+    }
+
     @After
     public void encerra() {
 	driver.close();
     }
-    
+
 }
